@@ -87,6 +87,12 @@
     <Compile Include="Radiography\UT.Designer.cs">
       <DependentUpon>UT.cs</DependentUpon>
     </Compile>
+    <Compile Include="Radiography\WeldTest.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Radiography\WeldTest.Designer.cs">
+      <DependentUpon>WeldTest.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ContinuousComboBox.resx">
@@ -106,6 +112,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Radiography\UT.resx">
       <DependentUpon>UT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Radiography\WeldTest.resx">
+      <DependentUpon>WeldTest.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

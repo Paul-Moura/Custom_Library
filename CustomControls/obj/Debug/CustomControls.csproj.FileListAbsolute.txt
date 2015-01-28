@@ -20,3 +20,4 @@ C:\Users\Paul_Moura\Dropbox\Projects\_PIAS\DLLs\CustomControls\CustomControls\ob
 C:\Users\Paul_Moura\Dropbox\Projects\_PIAS\DLLs\CustomControls\CustomControls\obj\Debug\CustomControls.Radiography.PT.resources
 C:\Users\Paul_Moura\Dropbox\Projects\_PIAS\DLLs\CustomControls\CustomControls\obj\Debug\CustomControls.Radiography.UT.resources
 C:\Users\Paul_Moura\Dropbox\Projects\_PIAS\DLLs\CustomControls\CustomControls\obj\Debug\CustomControls.Radiography.InspectionResults.resources
+C:\Users\Paul_Moura\Dropbox\Projects\_PIAS\DLLs\CustomControls\CustomControls\obj\Debug\CustomControls.Radiography.WeldTest.resources
