@@ -21,3 +21,15 @@ C:\Users\Paul_Moura\Dropbox\Projects\_PIAS\DLLs\CustomControls\CustomControls\ob
 C:\Users\Paul_Moura\Dropbox\Projects\_PIAS\DLLs\CustomControls\CustomControls\obj\Debug\CustomControls.Radiography.UT.resources
 C:\Users\Paul_Moura\Dropbox\Projects\_PIAS\DLLs\CustomControls\CustomControls\obj\Debug\CustomControls.Radiography.InspectionResults.resources
 C:\Users\Paul_Moura\Dropbox\Projects\_PIAS\DLLs\CustomControls\CustomControls\obj\Debug\CustomControls.Radiography.WeldTest.resources
+F:\DLLs\CustomControls\bin\Debug\CustomControls.dll
+F:\DLLs\CustomControls\bin\Debug\CustomControls.pdb
+F:\DLLs\CustomControls\obj\Debug\CustomControls.ContinuousComboBox.resources
+F:\DLLs\CustomControls\obj\Debug\CustomControls.Radiography.FilmUsage.resources
+F:\DLLs\CustomControls\obj\Debug\CustomControls.Radiography.InspectionResults.resources
+F:\DLLs\CustomControls\obj\Debug\CustomControls.Radiography.MT.resources
+F:\DLLs\CustomControls\obj\Debug\CustomControls.Radiography.PT.resources
+F:\DLLs\CustomControls\obj\Debug\CustomControls.Radiography.UT.resources
+F:\DLLs\CustomControls\obj\Debug\CustomControls.Radiography.WeldTest.resources
+F:\DLLs\CustomControls\obj\Debug\CustomControls.csproj.GenerateResource.Cache
+F:\DLLs\CustomControls\obj\Debug\CustomControls.dll
+F:\DLLs\CustomControls\obj\Debug\CustomControls.pdb

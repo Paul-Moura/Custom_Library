@@ -93,6 +93,8 @@
     <Compile Include="Radiography\WeldTest.Designer.cs">
       <DependentUpon>WeldTest.cs</DependentUpon>
     </Compile>
+    <Compile Include="Time.cs" />
+    <Compile Include="TimeKind.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ContinuousComboBox.resx">
