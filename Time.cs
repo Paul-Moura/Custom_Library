@@ -5,28 +5,36 @@ namespace CustomControls
 {
     public struct Time : IComparable, IFormattable, IConvertible, ISerializable, IComparable<Time>, IEquatable<Time>
     {
+        #region VARIABLES
+
+        private uint _ticks;
+
+        #endregion
+
         public static readonly Time MinValue = new Time();
+
+        public static readonly Time MaxValue = new Time();
 
         #region CONSTRUCTORS
 
         static Time(){}
 
-        public Time(long ticks)
+        public Time(int ticks)
+        {
+            _ticks = (uint) ticks;
+        }
+
+        private Time(uint timeData)
+        {
+            _ticks = timeData;
+        }
+
+        public Time(int ticks, TimeKind kind)
         {
             throw new NotImplementedException();
         }
 
-        private Time(ulong timeData)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Time(long ticks, TimeKind kind)
-        {
-            throw new NotImplementedException();
-        }
-
-        internal Time(long ticks, TimeKind kind, bool isAmbiguousDst)
+        internal Time(int ticks, TimeKind kind, bool isAmbiguousDst)
         {
             throw new NotImplementedException();
         }
@@ -62,47 +70,72 @@ namespace CustomControls
 
         public static Time operator +(Time t, TimeSpan ts)
         {
-            throw new NotImplementedException();
+            var t2 = new Time
+            {
+                _ticks = (uint) (t._ticks + ts.Ticks)
+            };
+
+            if (t2 > MaxValue) t2._ticks -= MaxValue._ticks;
+
+            return t2;
         }
 
         public static Time operator -(Time t, TimeSpan ts)
         {
-            throw new NotImplementedException();
+            Time t2;
+
+            if (t._ticks < ts.Ticks)
+            {
+                var remTicks = ts.Ticks%MaxValue._ticks;
+                t2 = new Time
+                {
+                    _ticks = (uint)(MaxValue._ticks - remTicks)
+                };
+            }
+            else
+            {
+                t2 = new Time
+                {
+                    _ticks = (uint)(MaxValue._ticks - ts.Ticks)
+                };
+            }
+            
+            return t2;
         }
 
         public static TimeSpan operator -(Time t1, Time t2)
         {
-            throw new NotImplementedException();
+            return new TimeSpan(Math.Abs(t1._ticks - t2._ticks));
         }
 
         public static bool operator ==(Time t1, Time t2)
         {
-            throw new NotImplementedException();
+            return t1._ticks == t2._ticks;
         }
 
         public static bool operator !=(Time t1, Time t2)
         {
-            throw new NotImplementedException();
+            return !(t1 == t2);
         }
 
         public static bool operator <(Time t1, Time t2)
         {
-            throw new NotImplementedException();
+            return t1._ticks < t2._ticks;
         }
 
         public static bool operator <=(Time t1, Time t2)
         {
-            throw new NotImplementedException();
+            return t1._ticks <= t2._ticks;
         }
 
         public static bool operator >(Time t1, Time t2)
         {
-            throw new NotImplementedException();
+            return t1._ticks > t2._ticks;
         }
 
         public static bool operator >=(Time t1, Time t2)
         {
-            throw new NotImplementedException();
+            return t1._ticks >= t2._ticks;
         }
 
         #endregion
@@ -111,7 +144,7 @@ namespace CustomControls
 
         public Time Add(TimeSpan value)
         {
-            throw new NotImplementedException();
+            return this + value;
         }
 
         private Time Add(double value, int scale)
