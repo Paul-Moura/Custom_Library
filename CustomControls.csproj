@@ -52,6 +52,7 @@
     <Compile Include="ContinuousComboBox.Designer.cs">
       <DependentUpon>ContinuousComboBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="EnumExtensions.cs" />
     <Compile Include="ExecuteDllMethod.cs" />
     <Compile Include="Impersonator.cs" />
     <Compile Include="Keyboard.cs" />
