@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace CustomControls
+namespace Custom.Controls
 {
     public class NotificationBox : IDisposable
     {

@@ -35,7 +35,7 @@ F:\DLLs\CustomControls\obj\Debug\CustomControls.dll
 F:\DLLs\CustomControls\obj\Debug\CustomControls.pdb
 C:\Users\Paul_Moura\Dropbox\Projects\_PIAS\DLLs\CustomControls\bin\Debug\CustomControls.dll
 C:\Users\Paul_Moura\Dropbox\Projects\_PIAS\DLLs\CustomControls\bin\Debug\CustomControls.pdb
-C:\Users\Paul_Moura\Dropbox\Projects\_PIAS\DLLs\CustomControls\obj\Debug\CustomControls.ContinuousComboBox.resources
 C:\Users\Paul_Moura\Dropbox\Projects\_PIAS\DLLs\CustomControls\obj\Debug\CustomControls.csproj.GenerateResource.Cache
 C:\Users\Paul_Moura\Dropbox\Projects\_PIAS\DLLs\CustomControls\obj\Debug\CustomControls.dll
 C:\Users\Paul_Moura\Dropbox\Projects\_PIAS\DLLs\CustomControls\obj\Debug\CustomControls.pdb
+C:\Users\Paul_Moura\Dropbox\Projects\_PIAS\DLLs\CustomControls\obj\Debug\Custom.Controls.ContinuousComboBox.resources

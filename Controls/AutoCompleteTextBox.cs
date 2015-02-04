@@ -8,12 +8,12 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Windows.Forms.Design;
 
-namespace CustomControls
+namespace Custom.Controls
 {
     public enum SuggestionAlignment { Left, Right }
 
     [ToolboxItem(true)]
-    [ToolboxBitmapAttribute(typeof(TextBox))]
+    [ToolboxBitmap(typeof(TextBox))]
     public sealed class AutoCompleteTextBox : TextBox
     {
         #region VARIABLES

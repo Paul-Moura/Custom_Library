@@ -1,4 +1,4 @@
-﻿namespace CustomControls
+﻿namespace Custom.Controls
 {
     partial class ContinuousComboBox
     {

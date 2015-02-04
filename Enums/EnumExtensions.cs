@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 
-namespace CustomControls
+namespace Custom.Enums
 {
     public static class EnumExtensions
     {
