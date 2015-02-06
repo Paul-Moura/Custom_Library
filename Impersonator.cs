@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Runtime.InteropServices;
 using System.Security.Principal;
 
-namespace CustomControls
+namespace Custom
 {
     public class Impersonator : IDisposable
     {

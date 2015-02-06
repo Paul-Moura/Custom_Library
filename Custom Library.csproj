@@ -60,12 +60,14 @@
     <Compile Include="Keyboard.cs" />
     <Compile Include="Controls\NotificationBox.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SDictionary.cs" />
     <Compile Include="SKeyValuePair.cs" />
     <Compile Include="System.cs" />
     <Compile Include="Time.cs" />
     <Compile Include="Enums\TimeKind.cs" />
     <Compile Include="Enums\Weekday.cs" />
     <Compile Include="Version.cs" />
+    <Compile Include="Xml.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Controls\ContinuousComboBox.resx">

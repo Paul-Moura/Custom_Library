@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
-namespace CustomControls
+namespace Custom
 {
     public static class Keyboard
     {

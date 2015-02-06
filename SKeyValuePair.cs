@@ -5,9 +5,9 @@ namespace Custom
     [Serializable]
     public class SKeyValuePair<T, TU>
     {
-        public T Key;
+        public T Key { get; private set; }
 
-        public TU Value;
+        public TU Value { get; set; }
 
         public SKeyValuePair(T key, TU value)
         {

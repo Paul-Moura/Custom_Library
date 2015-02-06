@@ -2,7 +2,7 @@
 using System.Runtime.Serialization;
 using Custom.Enums;
 
-namespace CustomControls
+namespace Custom
 {
     public struct Time : IComparable, IFormattable, IConvertible, ISerializable, IComparable<Time>, IEquatable<Time>
     {

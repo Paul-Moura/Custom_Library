@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Reflection;
 
-namespace CustomControls
+namespace Custom
 {
     public static class DLL
     {
@@ -11,6 +11,16 @@ namespace CustomControls
             Type type = assembly.GetType(className);
             MethodInfo method = type.GetMethod(methodName);
             method.Invoke(null, null);
+        }
+
+        public interface IDllExternalAccess
+        {
+            void Launch(); 
+        }
+
+        public interface IDllExternalUpdate
+        {
+            void NewUpdate();
         }
     }
 }

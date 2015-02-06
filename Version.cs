@@ -20,6 +20,12 @@ namespace Custom
 
         #endregion
 
+        #region PROPERTIES
+
+        public bool IsRollback { get; set; }
+
+        #endregion
+
         #region OPERATORS
 
         public static implicit operator string(Version version)
