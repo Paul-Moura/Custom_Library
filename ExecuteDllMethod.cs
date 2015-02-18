@@ -12,15 +12,5 @@ namespace Custom
             MethodInfo method = type.GetMethod(methodName);
             method.Invoke(null, null);
         }
-
-        public interface IDllExternalAccess
-        {
-            void Launch(); 
-        }
-
-        public interface IDllExternalUpdate
-        {
-            void NewUpdate();
-        }
     }
 }
