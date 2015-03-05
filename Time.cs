@@ -16,6 +16,15 @@ namespace Custom
 
         public static readonly Time MaxValue = new Time();
 
+        #region PROPERTIES
+
+        public long Ticks
+        {
+            get { return _ticks; }
+        }
+
+        #endregion
+
         #region CONSTRUCTORS
 
         static Time(){}
@@ -189,6 +198,17 @@ namespace Custom
         }
 
         #endregion
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            return obj is Time && Equals((Time)obj);
+        }
+
+        public override int GetHashCode()
+        {
+            return (int)_ticks;
+        }
 
         public string ToString(string format, IFormatProvider formatProvider)
         {
