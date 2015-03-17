@@ -10,12 +10,18 @@ namespace Custom
             stream.CopyTo(fileStream);
             fileStream.Close();
             stream.Close();
-            //var buffer = new byte[1024*8];
-            //int len;
-            //while ((len = stream.Read(buffer, 0, buffer.Length)) > 0)
-            //{
-            //    fileStream.Write(buffer, 0, len);
-            //}
         }
+
+	    public static byte[] ReadAll(this Stream stream)
+	    {
+		    byte[] bytes;
+
+		    using (var br = new BinaryReader(stream))
+		    {
+			    bytes = br.ReadBytes((int) stream.Length);
+		    }
+
+		    return bytes;
+	    }
     }
 }

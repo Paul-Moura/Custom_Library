@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Runtime.Serialization;
+using System.Security.Permissions;
 using Custom.Enums;
 
 namespace Custom
 {
+	[Serializable]
     public struct Time : IComparable, IFormattable, IConvertible, ISerializable, IComparable<Time>, IEquatable<Time>
     {
         #region VARIABLES
@@ -69,9 +71,12 @@ namespace Custom
             throw new NotImplementedException();
         }
 
-        private Time(SerializationInfo info, StreamingContext context)
+	    private Time(SerializationInfo info, StreamingContext context)
         {
-            throw new NotImplementedException();
+            if (info == null)
+				throw new ArgumentNullException("info");
+
+			_ticks = info.GetUInt32("Ticks");
         }
 
         #endregion
@@ -300,9 +305,13 @@ namespace Custom
             throw new NotImplementedException();
         }
 
+		[SecurityPermission(SecurityAction.Demand, SerializationFormatter = true)]
         public void GetObjectData(SerializationInfo info, StreamingContext context)
         {
-            throw new NotImplementedException();
+            if (info == null)
+	            throw new ArgumentNullException("info");
+
+			info.AddValue("Ticks", _ticks);
         }
 
         public bool Equals(Time other)
