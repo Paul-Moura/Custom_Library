@@ -63,6 +63,7 @@
     <Compile Include="SqlBase.cs" />
     <Compile Include="StreamExtensions.cs" />
     <Compile Include="SystemProperties.cs" />
+    <Compile Include="TextBoxExtensions.cs" />
     <Compile Include="Time.cs" />
     <Compile Include="Enums\TimeKind.cs" />
     <Compile Include="Enums\Weekday.cs" />

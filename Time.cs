@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
 using System.Runtime.Serialization;
 using System.Security.Permissions;
 using Custom.Enums;
@@ -10,19 +12,27 @@ namespace Custom
     {
         #region VARIABLES
 
-        private uint _ticks;
+        private ulong _ticks;
 
         #endregion
 
-        public static readonly Time MinValue = new Time();
+        public static readonly Time MinValue = new Time(0);
 
-        public static readonly Time MaxValue = new Time();
+		public static readonly Time MaxValue = new Time(863999999999);
+
+		public static readonly long TicksPerMillisecond = 10000;
+
+		public static readonly long TicksPerSecond = 10000000;
+
+		public static readonly long TicksPerMinute = 600000000;
+
+		public static readonly long TicksPerHour = 36000000000;
 
         #region PROPERTIES
 
         public long Ticks
         {
-            get { return _ticks; }
+            get { return (long) _ticks; }
         }
 
         #endregion
@@ -31,22 +41,22 @@ namespace Custom
 
         static Time(){}
 
-        public Time(int ticks)
+        public Time(long ticks)
         {
-            _ticks = (uint) ticks;
+            _ticks = (ulong) ticks;
         }
 
-        private Time(uint timeData)
+		private Time(ulong timeData)
         {
             _ticks = timeData;
         }
 
-        public Time(int ticks, TimeKind kind)
+		public Time(long ticks, TimeKind kind)
         {
             throw new NotImplementedException();
         }
 
-        internal Time(int ticks, TimeKind kind, bool isAmbiguousDst)
+		internal Time(long ticks, TimeKind kind, bool isAmbiguousDst)
         {
             throw new NotImplementedException();
         }
@@ -87,7 +97,7 @@ namespace Custom
         {
             var t2 = new Time
             {
-                _ticks = (uint) (t._ticks + ts.Ticks)
+				_ticks = t._ticks + (ulong)ts.Ticks
             };
 
             if (t2 > MaxValue) t2._ticks -= MaxValue._ticks;
@@ -99,19 +109,19 @@ namespace Custom
         {
             Time t2;
 
-            if (t._ticks < ts.Ticks)
+            if (t._ticks < (decimal) ts.Ticks)
             {
-                var remTicks = ts.Ticks%MaxValue._ticks;
+                var remTicks = ts.Ticks%(decimal) MaxValue._ticks;
                 t2 = new Time
                 {
-                    _ticks = (uint)(MaxValue._ticks - remTicks)
+                    _ticks = (ulong)(MaxValue._ticks - remTicks)
                 };
             }
             else
             {
                 t2 = new Time
                 {
-                    _ticks = (uint)(MaxValue._ticks - ts.Ticks)
+					_ticks = (ulong)(MaxValue._ticks - (decimal)ts.Ticks)
                 };
             }
             
@@ -120,7 +130,7 @@ namespace Custom
 
         public static TimeSpan operator -(Time t1, Time t2)
         {
-            return new TimeSpan(Math.Abs(t1._ticks - t2._ticks));
+            return new TimeSpan((long) Math.Abs((double) (t1._ticks - t2._ticks)));
         }
 
         public static bool operator ==(Time t1, Time t2)
@@ -159,32 +169,50 @@ namespace Custom
 
         public Time Add(TimeSpan value)
         {
-            return this + value;
-        }
-
-        private Time Add(double value, int scale)
-        {
-            throw new NotImplementedException();
+			var ticks = _ticks;
+			ticks += (ulong)value.Ticks;
+			var t = new Time(ticks);
+			return t;
         }
 
         public Time AddHours(double value)
         {
-            throw new NotImplementedException();
+			var ticks = _ticks;
+			ticks += (ulong)(36000000000 * value);
+			var t = new Time(ticks);
+			return t;
         }
 
         public Time AddMinutes(double value)
         {
-            throw new NotImplementedException();
+	        var ticks = _ticks;
+			ticks += (ulong)(TicksPerMinute*value);
+			var t = new Time(ticks);
+	        return t;
         }
 
         public Time AddSeconds(double value)
         {
-            throw new NotImplementedException();
+			var ticks = _ticks;
+			ticks += (ulong)(TicksPerSecond * value);
+			var t = new Time(ticks);
+			return t;
         }
+
+		public Time AddMilliseconds(double value)
+		{
+			var ticks = _ticks;
+			ticks += (ulong)(TicksPerMillisecond * value);
+			var t = new Time(ticks);
+			return t;
+		}
 
         public Time AddTicks(long value)
         {
-            throw new NotImplementedException();
+			var ticks = _ticks;
+			ticks += (ulong)(value);
+			var t = new Time(ticks);
+			return t;
         }
 
         public static int Compare(Time t1, Time t2)
@@ -202,7 +230,23 @@ namespace Custom
             throw new NotImplementedException();
         }
 
-        #endregion
+		public static Time Parse(string value)
+		{
+			if (value == null) throw new ArgumentNullException("value", "'value' is null.");
+			try
+			{
+				var dateTime = DateTime.Parse(value);
+				var ticks = dateTime.TimeOfDay.Ticks;
+				var time = new Time(ticks);
+				if (time > MaxValue) throw new ArgumentOutOfRangeException("value", value, "The value provided must be within the Min and Max values.");
+				return time;
+
+			}
+			catch (Exception exception)
+			{
+				throw new FormatException("'value' does not contain a valid string representation of a time.", exception);
+			}
+		}
 
         public override bool Equals(object obj)
         {
@@ -297,7 +341,23 @@ namespace Custom
 
         public string ToString(IFormatProvider provider)
         {
-            throw new NotImplementedException();
+	        var dt = new DateTime((long) _ticks);
+	        return dt.ToShortTimeString();
+
+	        //uint ticks = _ticks;
+	        //string str = "";
+
+	        //var n = (int) (ticks / (10000 * 60 * 60));
+	        //ticks -= (uint)(n * 10000 * 60 * 60);
+	        //str += n + ":";
+
+	        //n = (int)(ticks / (10000 * 60));
+	        //ticks -= (uint)(n * 10000 * 60);
+	        //str += n + ":";
+
+	        //n = (int)(ticks / (10000));
+	        //ticks -= (uint)(n * 10000);
+	        //str += n + "." + ticks;
         }
 
         public object ToType(Type conversionType, IFormatProvider provider)
@@ -316,7 +376,25 @@ namespace Custom
 
         public bool Equals(Time other)
         {
-            throw new NotImplementedException();
+	        return this == other;
         }
+
+		public static string[] GetBasicOptions()
+		{
+			var list = new List<string>();
+
+			Time t = MinValue;
+
+			while (t <= MaxValue)
+			{
+				var str = t.ToString(CultureInfo.InvariantCulture);
+				list.Add(str);
+				t = t.AddMinutes(15.0);
+			}
+
+			return list.ToArray();
+		}
+
+        #endregion
     }
 }
