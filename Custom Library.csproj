@@ -51,8 +51,14 @@
     <Compile Include="Controls\ContinuousComboBox.Designer.cs">
       <DependentUpon>ContinuousComboBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\NumberBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DataContracts\DataContractObject.cs" />
     <Compile Include="DataContracts\SystemInfo.cs" />
     <Compile Include="Enums\EnumExtensions.cs" />
+    <Compile Include="Enums\State.cs" />
+    <Compile Include="Enums\StateProvince.cs" />
     <Compile Include="ExecuteDllMethod.cs" />
     <Compile Include="Impersonator.cs" />
     <Compile Include="Keyboard.cs" />

@@ -2,7 +2,7 @@
 
 namespace Custom.DataContracts
 {
-    [DataContract(Name = "SystemInfo", Namespace = "http://schemas.pfinde.com/Updates/")]
+    [DataContract]
     public class SystemInfo
     {
         #region VARIABLES
